@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="ERROR">
+	<Appenders>
+		<Console name="Console" target="ERROR">
+			<PatternLayout pattern="%r [%t] %-5p %c - %m%n" />
+		</Console>
+		<!-- <File name="File" fileName="${filename}"> <PatternLayout pattern="%r 
+			[%t] %-5p %c - %m%n" /> </File> -->
+	</Appenders>
+	<Loggers>
+		<Root level="error">
+			<AppenderRef ref="Console"/>
+			<!-- <AppenderRef ref="File" /> -->
+		</Root>
+		<Logger name="qsalign" level="info" additivity="false">
+			<AppenderRef ref="Console"/>
+		</Logger>
+	</Loggers>
+</Configuration>
