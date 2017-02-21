@@ -20,14 +20,11 @@ import org.biojava.nbio.structure.Calc;
 import org.biojava.nbio.structure.Structure;
 import org.biojava.nbio.structure.StructureException;
 import org.biojava.nbio.structure.StructureIdentifier;
-import org.biojava.nbio.structure.align.StructureAlignmentFactory;
-import org.biojava.nbio.structure.align.ce.CeMain;
 import org.biojava.nbio.structure.align.client.StructureName;
 import org.biojava.nbio.structure.align.quaternary.QsAlign;
 import org.biojava.nbio.structure.align.quaternary.QsAlignParameters;
 import org.biojava.nbio.structure.align.quaternary.QsAlignResult;
 import org.biojava.nbio.structure.align.util.AtomCache;
-import org.biojava.nbio.structure.cluster.SubunitClustererMethod;
 import org.biojava.nbio.structure.cluster.SubunitClustererParameters;
 import org.biojava.nbio.structure.geometry.CalcPoint;
 import org.biojava.nbio.structure.geometry.UnitQuaternions;
@@ -35,12 +32,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * The QsAlignMain provides a CLI interface to the {@link QsAlign} algorithm for
- * aligning protein structures.
+ * The QsAlignMain provides a CLI interface to the {@link QsAlign} algorithm
+ * for aligning protein structures.
  * 
  * @author Aleix Lafita
- * @since April 2016
- * @version 0.0.1
+ * @since February 2016
+ * @version 1.0
  *
  */
 public class QsAlignMain implements Serializable {
@@ -53,7 +50,7 @@ public class QsAlignMain implements Serializable {
 	public static void main(String[] args) throws IOException,
 			InterruptedException, StructureException {
 
-		// ####################################################################
+		// ####################################
 		// Parse the command line options
 
 		Options options = getOptions();
@@ -74,24 +71,16 @@ public class QsAlignMain implements Serializable {
 		args = cli.getArgs();
 
 		if (cli.hasOption("help")) {
-			help.printHelp("QsAlign [options]", options);
+			help.printHelp("java -jar QsAlign.jar [options]", options);
 			System.exit(0);
 			return;
 		}
 
-		// Select the parameters for clustering and alignment
+		// Select the parameters for clustering
 		SubunitClustererParameters clusterParams = new SubunitClustererParameters();
-		// Use sequence alignment, it should be 100% identity
-		clusterParams.setClustererMethod(SubunitClustererMethod.SEQUENCE);
-		// Some targets are shorter than the provided sequence, ignore coverage
-		clusterParams.setCoverageThreshold(0.05);
-		// Higher up RMSD threhold so that it does not influence sequence
-		clusterParams.setRmsdThreshold(50.0);
 
-		// Select parameters of the assembly alignment
+		// Select parameters of the alignment
 		QsAlignParameters alignParams = new QsAlignParameters();
-		// Set maximum RMSD and min length of the sequence alignment
-		alignParams.setAligner(StructureAlignmentFactory.getAlgorithm(CeMain.algorithmName));
 
 		AtomCache cache = new AtomCache();
 
@@ -125,7 +114,7 @@ public class QsAlignMain implements Serializable {
 			output = new PrintWriter(System.out, true);
 		}
 
-		// ####################################################################
+		// ##################################################
 		// Do the alignment and write the results
 
 		QsAlignResult result = QsAlign.align(query, target, clusterParams,
