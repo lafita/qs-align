@@ -2,7 +2,7 @@
 
 QS-align is a scalable protein quaternary structure alignment algorithm.
 
-
+![pic](qs-align_pic.png)
 
 ### How is this tool useful to me?
 
