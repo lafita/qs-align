@@ -21,7 +21,7 @@ The original [pull request](https://github.com/biojava/biojava/pull/571) with th
 ### What's in this repository?
 
 This repository contains the command-line interface (CLI) to the **QS-align** algorithm.
-The source code is included in the **BioJava** library (https://github.com/biojava/biojava) from version 5.
+The source code is included in the structure module of the [BioJava library](https://github.com/biojava/biojava) from version 5, and can be found [here](https://github.com/biojava/biojava/tree/master/biojava-structure/src/main/java/org/biojava/nbio/structure/align/quaternary).
 
 ### Download
 
@@ -30,8 +30,7 @@ The latest version of the **QS-align** CLI tool is available from the [releases]
 
 ### Run QS-align
 
-Ask for help:
-
+You can ask for help to check the options of the CLI.
 ```
 java -jar qs-align_X.X.jar -h
 
@@ -42,13 +41,30 @@ usage: java -jar QsAlign.jar [options]
  -o,--output <file>   Path to the output file [default: stdout]
 ```
 
-Run the method:
-
+To align two protein complexes, specify a target and query structures and (optionally) an output file.
 ```
-java -jar qs-align_X.X.jar -t 1bcc -q 1kb9
+java -jar qs-align_X.X.jar -t 1bcc -q 1kb9 -o result.tsv
 ```
 
-Input protein formats and options:
+### Supported input formats
+
+1. Structures can be downloaded directly from the Protein Data Bank (PDB), simply specify their PDB codes.
+```
+java -jar qs-align_X.X.jar -t 1bcc -q 1kb9 -o result.tsv
+```
+2. In the case of crystal structures, using the PDB code will download the asymmetric unit of the crystal. If you want to use the biological assembly add a `BIO:` prefix and the biological assembly number as a suffix (e.g. `:1`).
+```
+java -jar qs-align_X.X.jar -t BIO:1bcc:1 -q BIO:1kb9:1 -o result.tsv
+```
+3. Local files in [PDB](https://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html), [PDBx/mmCFIF](http://mmcif.wwpdb.org/) and [MMTF](https://mmtf.rcsb.org) formats. 
+```
+java -jar qs-align_X.X.jar -t 1bcc.pdb -q 1kb9.cif -o result.tsv
+```
+
+Any combination of inputs is allowed (e.g. align the structure from a local file against a remote structure in the PDB).
+```
+java -jar qs-align_X.X.jar -t 1bcc.mmtf -q BIO:1kb9:1 -o result.tsv
+```
 
 ### Output format
 
@@ -71,7 +87,7 @@ The meaning of the headers for each value are:
 - `ResidueLength`: the total number of aligned residues, summing up the residues in each chain in the alignment.
 - `[Aligned-Query]`: a comma separated list of the matching chain IDs of the query structure.
 - `[Aligned-Target]`: a comma separated list of the matchig chain IDs of the target structure.
-- `[Query-Target:OrientationAngle]`:
+- `[Query-Target:OrientationAngle]`: a comma separated list of query vs target chain-chain matchings, with the angular deviation in radians of the chain orientations in the quaternary structure superposition.  
 
 
 ### Build from source
@@ -94,17 +110,19 @@ target/qs-align-X.X-SNAPSHOT.jar
 Apache Maven is a software project management tool.
 More information about Maven and instructions on how to install it can be found at https://maven.apache.org.
 
+
 ### Contact
 
 If you have any questions or problems, you can [post a new issue](https://github.com/lafita/qs-align/issues/new) in this repository.
 
+
 ### Cite this work
 
-If you find this tool useful for your research project, please consider citing:
+If you found this tool useful for your research, please consider citing:
 
 >Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99.(available at: https://doi.org/10.3929/ethz-a-010863273)
 
-Additionally, you can cite this repository with the URL https://github.com/lafita/qs-align. 
+You can also cite this repository with the URL https://github.com/lafita/qs-align. 
 
 Thanks!
 
