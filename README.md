@@ -4,29 +4,29 @@ QS-align is a scalable protein quaternary structure alignment algorithm.
 
 ![pic](qs-align_pic.png)
 
-### How is this tool useful to me?
+### What can this tool be used for?
 
 Have you ever needed to compare two protein complexes? 
 Would you like to know which subunits from two protein assemblies are equivalent?
 
 Traditional quaternary structure alignment methods combinatorially evaluate all possible chain-chain mappings between the two protein complexes. 
 Although this approach works for comparisons of small protein complexes (up to 3 subunits), the computing time scales exponentially with the size of the input structures and rapidly becomes prohibitively expensive. 
-**QS-align** provides an 
-
-### How does the algorithm work?
-
-The algorithm is fully described and tested in *Chapter 4* of *Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99.* (available at: https://doi.org/10.3929/ethz-a-010863273).
-The original [pull request](https://github.com/biojava/biojava/pull/571) with the source code of the algorithm also contains an extensive description of the method.
+**QS-align** provides a scalable solution to this problem, so that any two protein complexes can be efficiently compared.
 
 ### What's in this repository?
 
 This repository contains the command-line interface (CLI) to the **QS-align** algorithm.
 The source code is included in the structure module of the [BioJava library](https://github.com/biojava/biojava) from version 5, and can be found [here](https://github.com/biojava/biojava/tree/master/biojava-structure/src/main/java/org/biojava/nbio/structure/align/quaternary).
 
+### How does the algorithm work?
+
+The algorithm is fully described and tested in *Chapter 4* of *Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99.* (available at: https://doi.org/10.3929/ethz-a-010863273).
+The original [pull request](https://github.com/biojava/biojava/pull/571) with the source code of the algorithm also contains an extensive description of the method.
+
 ### Download
 
-The latest version of the **QS-align** CLI tool is available from the [releases](https://github.com/lafita/qs-align/releases).
-**QS-align** only requires Java 8 or higher.
+The latest version of the **QS-align** CLI tool is available from the [releases section](https://github.com/lafita/qs-align/releases).
+**QS-align** only requires [Java 8](https://www.java.com/en/download/) or higher.
 
 ### Run QS-align
 
@@ -82,6 +82,7 @@ The meaning of the headers for each value are:
    - `EQUIVALENT`: both protein complexes have the same number of chains and they all match.
    - `PARTIAL_COMPLETE`: one complex has fewer chains than another and they all match. This means that one of the complexes is a subset of the other, and the other contains additional chains.
    - `PARTIAL_INCOMPLETE`: the number of matching chains is lower than the number of chains in either of the complexes. This means that each complex has additional chains not found in the other complex.
+   - `DIFFERENT`: the two complexes do not share any common protein chains.
 - `ChainLength`: the number of matching chains, included in the alignment.
 - `RMSD`: the root mean square deviation (RMSD) at the residue level of the quaternary structure superposition.
 - `ResidueLength`: the total number of aligned residues, summing up the residues in each chain in the alignment.
