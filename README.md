@@ -1,6 +1,8 @@
-# QS-align
+# QS-ALIGN: protein quaternary structure alignment
 
-A scalable protein quaternary structure alignment algorithm.
+QS-align is a scalable protein quaternary structure alignment algorithm.
+
+
 
 ### How is this tool useful to me?
 
@@ -50,14 +52,26 @@ Input protein formats and options:
 
 ### Output format
 
-Columns:
+The output is a single row of Tab-separated values with their headers, like the one below:
 
-- `Query` and `Target`: PDB codes or file names of the aligned protein structures.
-- `Relation`:
-- `ChainLength`:
-- `Relation`:
-- `Relation`:
-- `Relation`:
+```
+Query	Target	Relation		ChainLength	RMSD	ResidueLength	[Aligned-Query]			[Aligned-Target]		[Query-Target:OrientationAngle]
+1kb9	1bcc	PARTIAL_INCOMPLETE	8		2.25	1561		[A, B, C, D, F, G, H, I]	[A, B, C, D, H, F, G, J]	[ A-A:0.04 B-B:0.13 C-C:0.02 D-D:0.04 F-H:0.09 G-F:0.01 H-G:0.08 I-J:0.06 ]
+```
+
+The meaning of the headers for each value are:
+
+- `Query` and `Target`: PDB codes or file names of the two aligned protein structures.
+- `Relation`: specifies the outcome of the alignment and can be:
+   - `EQUIVALENT`: both protein complexes have the same number of chains and they all match.
+   - `PARTIAL_COMPLETE`: one complex has fewer chains than another and they all match. This means that one of the complexes is a subset of the other, and the other contains additional chains.
+   - `PARTIAL_INCOMPLETE`: the number of matching chains is lower than the number of chains in either of the complexes. This means that each complex has additional chains not found in the other complex.
+- `ChainLength`: the number of matching chains, included in the alignment.
+- `RMSD`: the root mean square deviation (RMSD) at the residue level of the quaternary structure superposition.
+- `ResidueLength`: the total number of aligned residues, summing up the residues in each chain in the alignment.
+- `[Aligned-Query]`: a comma separated list of the matching chain IDs of the query structure.
+- `[Aligned-Target]`: a comma separated list of the matchig chain IDs of the target structure.
+- `[Query-Target:OrientationAngle]`:
 
 
 ### Build from source
@@ -79,3 +93,18 @@ target/qs-align-X.X-SNAPSHOT.jar
 
 Apache Maven is a software project management tool.
 More information about Maven and instructions on how to install it can be found at https://maven.apache.org.
+
+### Contact
+
+If you have any questions or problems, you can [post a new issue](https://github.com/lafita/qs-align/issues/new) in this repository.
+
+### Cite this work
+
+If you find this tool useful for your research project, please consider citing:
+
+>Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99.(available at: https://doi.org/10.3929/ethz-a-010863273)
+
+Additionally, you can cite this repository with the URL https://github.com/lafita/qs-align. 
+
+Thanks!
+
