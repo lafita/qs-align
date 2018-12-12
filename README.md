@@ -20,7 +20,10 @@ The source code is included in the structure module of the [BioJava library](htt
 
 ### How does the algorithm work?
 
-The algorithm is fully described and tested in *Chapter 4* of *Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99.* (available at: https://doi.org/10.3929/ethz-a-010863273).
+The algorithm is fully described and tested in *Chapter 4* of 
+
+>Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99. Available at: https://doi.org/10.3929/ethz-a-010863273
+
 The original [pull request](https://github.com/biojava/biojava/pull/571) with the source code of the algorithm also contains an extensive description of the method.
 
 ### Download
