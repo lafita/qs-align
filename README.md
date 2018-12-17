@@ -125,12 +125,12 @@ If you have any questions or problems, you can [post a new issue](https://github
 
 This method is not published in a peer-reviewed journal article, but if you found the tool useful for your research, please consider citing my thesis:
 
->Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99. DOI: 10.3929/ethz-a-010863273
+>Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99. doi:10.3929/ethz-a-010863273
 
 [![DOI](https://img.shields.io/badge/doi-10.3929%2Fethz--a--010863273-blue.svg)](https://doi.org/10.3929/ethz-a-010863273)
 
 You can also cite this repository as:
-> Lafita A. (2017) QS-Align: Scalable protein quaternary structure alignment algorithm. Computer Software. DOI: 10.5281/zenodo.2351589
+> Lafita A. QS-Align: Scalable protein quaternary structure alignment algorithm; 2017. Available from:https://github.com/lafita/qs-align. doi:10.5281/zenodo.2351589
 
 [![DOI](https://zenodo.org/badge/79561725.svg)](https://zenodo.org/badge/latestdoi/79561725)
 
