@@ -108,7 +108,7 @@ mvn install
 The newly generated **JAR** executable will be placed in the `target` directory:
 
 ```
-target/qs-align-X.X-SNAPSHOT.jar
+target/qs-align_X.X-SNAPSHOT.jar
 ```
 
 Apache Maven is a software project management tool.
