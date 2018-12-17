@@ -20,11 +20,11 @@ The source code is included in the structure module of the [BioJava library](htt
 
 ### How does the algorithm work?
 
-The algorithm is fully described and tested in *Chapter 4* of 
+The algorithm is fully described and tested in *Chapter 4* of my Master thesis:
 
 >Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99. Available at: https://doi.org/10.3929/ethz-a-010863273
 
-The original [pull request](https://github.com/biojava/biojava/pull/571) with the source code of the algorithm also contains an extensive description of the method.
+There is a [pull request](https://github.com/biojava/biojava/pull/571) to BioJava that contains the source code of the algorithm and additional description of the method.
 
 ### Download
 
@@ -91,7 +91,7 @@ The meaning of the headers for each value are:
 - `ResidueLength`: the total number of aligned residues, summing up the residues in each chain in the alignment.
 - `[Aligned-Query]`: a comma separated list of the matching chain IDs of the query structure.
 - `[Aligned-Target]`: a comma separated list of the matchig chain IDs of the target structure.
-- `[Query-Target:OrientationAngle]`: a comma separated list of query vs target chain-chain matchings, with the angular deviation in radians of the chain orientations in the quaternary structure superposition.  
+- `[Query-Target:OrientationAngle]`: a comma separated list of query vs target chain-chain matchings, with the angular deviation in radians of the chain orientations in the quaternary structure superposition.
 
 
 ### Build from source
@@ -122,11 +122,11 @@ If you have any questions or problems, you can [post a new issue](https://github
 
 ### Cite this work
 
-If you found this tool useful for your research, please consider citing:
+This method is not published in a peer-reviewed journal article, but if you found the tool useful for your research, please consider citing my thesis:
 
 >Lafita A. Assessment of protein assembly prediction in CASP12 & Conformational dynamics of integrin α‐I domains. ETH Zürich. 2017;99.(available at: https://doi.org/10.3929/ethz-a-010863273)
 
-You can also cite this repository with the URL https://github.com/lafita/qs-align. 
+You can also mention the link to this repository, using the URL https://github.com/lafita/qs-align. 
 
-Thanks!
+Thank you!
 
