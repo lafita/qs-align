@@ -30,7 +30,7 @@ There is a [pull request](https://github.com/biojava/biojava/pull/571) to BioJav
 ### Download
 
 The latest version of the **QS-align** CLI tool is available from the [releases section](https://github.com/lafita/qs-align/releases).
-**QS-align** only requires [Java 8](https://www.java.com/en/download/) or higher.
+**QS-align** only requires [Java 11](https://www.java.com/en/download/) or higher.
 
 ### Run QS-align
 
