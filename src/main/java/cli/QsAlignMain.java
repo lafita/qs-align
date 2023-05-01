@@ -25,6 +25,7 @@ import org.biojava.nbio.structure.align.quaternary.QsAlign;
 import org.biojava.nbio.structure.align.quaternary.QsAlignParameters;
 import org.biojava.nbio.structure.align.quaternary.QsAlignResult;
 import org.biojava.nbio.structure.align.util.AtomCache;
+import org.biojava.nbio.structure.cluster.Subunit;
 import org.biojava.nbio.structure.cluster.SubunitClustererParameters;
 import org.biojava.nbio.structure.geometry.CalcPoint;
 import org.biojava.nbio.structure.geometry.UnitQuaternions;
@@ -130,10 +131,10 @@ public class QsAlignMain implements Serializable {
 		output.write(String.format("%.2f\t", result.getRmsd()));
 		output.write(result.getAlignment().length() + "\t");
 		output.write(result.getAlignedSubunits1().stream()
-				.map(s -> s.getName()).collect(Collectors.toList())
+				.map(Subunit::getName).collect(Collectors.toList())
 				+ "\t");
 		output.write(result.getAlignedSubunits2().stream()
-				.map(s -> s.getName()).collect(Collectors.toList())
+				.map(Subunit::getName).collect(Collectors.toList())
 				+ "\t");
 
 		output.write("[ ");
