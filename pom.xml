@@ -5,6 +5,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>qs-align</artifactId>
 	<name>qs-align</name>
+	<groupId>org.biojava</groupId>
+	<version>1.2-SNAPSHOT</version>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<projeBct.build.sourceEncoding>UTF-8</projeBct.build.sourceEncoding>
@@ -104,6 +106,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<groupId>org.eppic-web</groupId>
-	<version>1.1-SNAPSHOT</version>
 </project>
