@@ -30,7 +30,7 @@ There is a [pull request](https://github.com/biojava/biojava/pull/571) to BioJav
 ### Download
 
 The latest version of the **QS-align** CLI tool is available from the [releases section](https://github.com/lafita/qs-align/releases).
-**QS-align** only requires [Java 8](https://www.java.com/en/download/) or higher.
+**QS-align** only requires [Java 11](https://www.java.com/en/download/) or higher.
 
 ### Run QS-align
 
@@ -60,7 +60,7 @@ java -jar qs-align_X.X.jar -t 1bcc -q 1kb9 -o result.tsv
 ```
 java -jar qs-align_X.X.jar -t BIO:1bcc:1 -q BIO:1kb9:1 -o result.tsv
 ```
-3. Local files in [PDB](https://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html), [PDBx/mmCFIF](http://mmcif.wwpdb.org/) and [MMTF](https://mmtf.rcsb.org) formats. 
+3. Local files in [PDB](https://www.rcsb.org/pdb/static.do?p=file_formats/pdb/index.html), [PDBx/mmCIF](http://mmcif.wwpdb.org/), [BinaryCIF](https://github.com/molstar/BinaryCIF) and [MMTF](https://mmtf.rcsb.org) formats. 
 ```
 java -jar qs-align_X.X.jar -t 1bcc.pdb -q 1kb9.cif -o result.tsv
 ```
